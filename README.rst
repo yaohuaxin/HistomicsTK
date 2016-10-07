@@ -14,10 +14,12 @@ HistomicsTK |build-status| |codecov-io| |docs-status|
     :target: http://histomicstk.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
 
-HistomicsTK is a Python and REST API for the analysis of Histopathology images
+A Python and REST API for the analysis of Histopathology images
 in association with clinical and genomic data.
 
+
 .. image:: plugin_tests/data/histomicstk_web_analytics.png
+
 
 Histopathology, which involves the examination of thin-slices of diseased
 tissue at a cellular resolution using a microscope, is regarded as the gold
