@@ -19,8 +19,8 @@ in association with clinical and genomic data.
 
 
 .. image:: plugin_tests/data/histomicstk_web_analytics.png
-    :scale: 75
     :align: left
+    :width: 512
 
 
 Histopathology, which involves the examination of thin-slices of diseased
