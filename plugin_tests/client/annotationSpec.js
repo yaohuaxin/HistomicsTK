@@ -342,9 +342,13 @@ $(function () {
                 runs(function () {
                     expect($('button.h-draw[data-type="point"]').hasClass('active')).toBe(true);
                 });
+                waitsFor(function () {
+                    $('.h-annotation-selector .h-group-collapsed .h-annotation-group-name').click();
+                    return $('.h-annotation-selector .h-annotation:contains("drawn b")').length;
+                }, '"drawn b" control to be shown');
+
                 // delete the annotation we just created.
                 runs(function () {
-                    $('.h-annotation-selector .h-group-collapsed .h-annotation-group-name').click();
                     $('.h-annotation-selector .h-annotation:contains("drawn b") .h-delete-annotation').click();
                 });
                 girderTest.waitForDialog();
@@ -352,8 +356,12 @@ $(function () {
                     $('.h-submit').click();
                 });
                 girderTest.waitForLoad();
+                waitsFor(function () {
+                    return $('.h-annotation-selector .h-annotation:contains("drawn b")').length === 0;
+                }, '"drawn b" to be deleted');
                 // select the original annotation
                 runs(function () {
+                    expect($('.h-annotation-selector .h-annotation:contains("drawn 1") .h-annotation-name').length).toBe(1);
                     $('.h-annotation-selector .h-annotation:contains("drawn 1") .h-annotation-name').click();
                 });
                 waitsFor(function () {
