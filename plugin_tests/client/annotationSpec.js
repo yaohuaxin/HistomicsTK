@@ -531,7 +531,7 @@ $(function () {
                 $el = $('.h-annotation-selector .h-annotation-group[data-group-name="Other"]');
                 expect($el.hasClass('h-group-collapsed')).toBe(false);
                 expect($el.hasClass('h-group-expanded')).toBe(true);
-                expect($el.find('.h-annotation').length).toBe(1);
+                expect($el.find('.h-annotation').length).toBeGreaterThan(0);
             });
 
             it('ensure user cannot remove the admin annotation', function () {
