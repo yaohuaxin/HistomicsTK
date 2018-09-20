@@ -23,14 +23,6 @@ import os
 docs_dir = os.path.dirname(__file__)
 sys.path.insert(0, os.path.abspath(os.path.join(docs_dir, '..')))
 
-# on_rtd is whether we are on readthedocs.org
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-
-if not on_rtd:  # only import and set the theme if we're building docs locally
-    import sphinx_rtd_theme
-    html_theme = 'sphinx_rtd_theme'
-    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-
 # -- General configuration ---------------------------------------------
 # We use footnotes to collect references without actually referencing them
 suppress_warnings = ['ref.footnote']
@@ -56,6 +48,28 @@ extensions = ['sphinx.ext.autodoc',
 autodoc_mock_imports = ['matplotlib', 'nimfa', 'openslide', 'pandas',
                         'large_image', 'scipy', 'skimage', 'sklearn',
                         'segmentation.label.trace_boundaries_cython']
+
+# Set theme
+import guzzle_sphinx_theme
+html_theme_path = guzzle_sphinx_theme.html_theme_path()
+html_theme = 'guzzle_sphinx_theme'
+
+extensions.append("guzzle_sphinx_theme")
+
+html_theme_options = {
+
+    # Set the name of the project to appear in the sidebar
+    "project_nav_name": "HistomicsTK",
+
+    # Set you GA account ID to enable tracking
+    "google_analytics_account": "80038989",
+}
+
+html_sidebars = {
+  '**': ['logo-text.html',
+         'globaltoc.html',
+         'searchbox.html']
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
